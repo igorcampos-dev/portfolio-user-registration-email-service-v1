@@ -1,0 +1,3 @@
+Parabéns, %s!
+Seu cadastro foi realizado com sucesso em nossa plataforma.
+Bem-vindo!

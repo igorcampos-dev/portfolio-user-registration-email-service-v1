@@ -1,0 +1,81 @@
+version: "3.9"
+
+services:
+  email-ms:
+    build:
+      context: ./email-ms
+    ports:
+      - "82:82"
+    environment:
+      SERVER_PORT: 82
+      SPRING_DOC_ACTUATOR: true
+      DB_URL: jdbc:postgresql://database:5432/pvd-solution
+      DB_USERNAME: sdiv_pred
+      DB_PASSWORD: 22I!swq9s
+      DB_DRIVER: org.postgresql.Driver
+      DB_SHOW_SQL: false
+      DB_OPEN_VIEW: false
+      SPRING_RABBITMQ_HOST: 172.20.0.2
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+      SPRING_RABBITMQ_TEMPLATE_QUEUE: ms-email
+      SPRING_EMAIL_HOST: smtp.gmail.com
+      SPRING_EMAIL_PORT: 587
+      SPRING_EMAIL_EMAIL: SEU_EMAIL_AQUI
+      SPRING_EMAIL_PASSWORD: SUA_SENHA_AQUI
+      SPRING_EMAIL_SMTP: true
+      SPRING_EMAIL_STARTTLS: true
+    networks:
+      - api
+
+  user-ms:
+    build:
+      context: ./user-ms
+    ports:
+      - "81:81"
+    environment:
+      SERVER_PORT: 81
+      SPRING_DOC_ACTUATOR: true
+      DB_URL: jdbc:postgresql://database:5432/pvd-solution
+      DB_USERNAME: sdiv_pred
+      DB_PASSWORD: 22I!swq9s
+      DB_DRIVER: org.postgresql.Driver
+      DB_SHOW_SQL: false
+      DB_OPEN_VIEW: false
+      RABBITMQ_ADDRESSES: 172.20.0.2:5672
+      RABBITMQ_TEMPLATE_QUEUE: ms-email
+    networks:
+      - api
+
+  database:
+    image: postgres:13
+    container_name: database
+    environment:
+      POSTGRES_PASSWORD: 22I!swq9s
+      POSTGRES_USER: sdiv_pred
+    volumes:
+      - ./docker/sql/databases.sql:/docker-entrypoint-initdb.d/databases.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - api
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      api:
+        ipv4_address: 172.20.0.2
+
+networks:
+  api:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
