@@ -5,12 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Comment;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tb_users")
+@Table(name = "TB_USERS")
 @Data
 @Builder
 @AllArgsConstructor
@@ -23,26 +24,29 @@ public class UserEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(
-            name = "id",
+            name = "PK_ID",
             unique = true,
             length = 35
     )
+    @Comment("Id do usuário")
     private UUID id;
 
     @Column(
-            name = "name",
+            name = "USR_ST_NAME",
             unique = true,
             updatable = false,
             nullable = false
     )
+    @Comment("Nome do usuário")
     private String name;
 
     @Column(
-            name = "email",
+            name = "USR_ST_EMAIL",
             unique = true,
             updatable = false,
             nullable = false
     )
+    @Comment("Email do usuário")
     private String email;
 
 }
