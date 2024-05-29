@@ -21,12 +21,12 @@ O microserviço de criação do usuário tem como principal objetivo criar um us
 Os projetos estarão disponíveis no Swagger nas seguintes rotas:
 
 ### Local
-- User-MS: http://localhost:8081/swagger-ui/index.html#/
-- Email-MS: http://localhost:8082/swagger-ui/index.html#/
+- User-MS: [clique aqui](http://localhost:8081/swagger-ui/index.html#/)
+- Email-MS: [clique aqui](http://localhost:8082/swagger-ui/index.html#/)
 
 ### Docker
-- User-MS: http://localhost:81/swagger-ui/index.html#/
-- Email-MS: http://localhost:82/swagger-ui/index.html#/
+- User-MS: [clique aqui](http://localhost:81/swagger-ui/index.html#/)
+- Email-MS: [clique aqui](http://localhost:82/swagger-ui/index.html#/)
 
 ## Diagrama Demonstrando a Lógica do Projeto
 
