@@ -36,5 +36,6 @@ public class EmailServiceImpl implements EmailService {
         var userMapper = EmailMapper.dtoToEntity(dto);
         emailRepository.save(userMapper);
     }
+    
 }
 
