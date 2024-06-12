@@ -32,19 +32,19 @@ Os projetos estarão disponíveis no Swagger nas seguintes rotas:
 
 <img src="readme-archives/diagrama.png" alt="Diagrama" width="600" height="400">
 
-## Passo a passo de como executar o projeto:
+## Passo a passo de como executar o projeto
 
 Acesse o link desse vídeo para poder gerar a credencial necessária para utilizar o projeto: [aqui](https://www.youtube.com/watch?v=lSURGX0JHbA)
 
 configure as credenciais que estão definidas no: application.properties dos dois microserviços,e o docker compose.
 ajuste as credenciais que estão definidas como: SEU_EMAIL_AQUI e SUA_SENHA_AQUI dos arquivos ditos.
 
-### Requisitos:
+### Requisitos
 - docker
 - jdk 17
 - conta de email
 
-### Local:
+### Local
 
 execute:
 ```bash
