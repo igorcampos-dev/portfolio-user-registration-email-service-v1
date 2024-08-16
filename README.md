@@ -28,10 +28,6 @@ Os projetos estarão disponíveis no Swagger nas seguintes rotas:
 - User-MS: [clique aqui](http://localhost:81/swagger-ui/index.html#/)
 - Email-MS: [clique aqui](http://localhost:82/swagger-ui/index.html#/)
 
-## Diagrama Demonstrando a Lógica do Projeto
-
-<img src="readme-archives/diagrama.png" alt="Diagrama" width="600" height="400">
-
 ## Passo a passo de como executar o projeto
 
 Acesse o link desse vídeo para poder gerar a credencial necessária para utilizar o projeto: [aqui](https://www.youtube.com/watch?v=lSURGX0JHbA)

@@ -18,4 +18,9 @@ public class HandlerExceptions {
         return Error.response(e.getMessage(), HttpStatus.CONFLICT, s.getRequestURI());
     }
 
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Error> handleRuntimeException(HttpServletRequest s, RuntimeException e) {
+        return Error.response(e.getMessage(), HttpStatus.CONFLICT, s.getRequestURI());
+    }
+
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender emailSender;
@@ -19,6 +20,16 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     public void sendSimpleMessage(EmailRequestDto dto) {
+        this.sendEmail(dto);
+        this.save(dto);
+    }
+
+    private void save(EmailRequestDto dto){
+        var userMapper = EmailMapper.dtoToEntity(dto);
+        emailRepository.save(userMapper);
+    }
+
+    private void sendEmail(EmailRequestDto dto){
         try {
             MimeMessage message = emailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -26,15 +37,9 @@ public class EmailServiceImpl implements EmailService {
             helper.setSubject(dto.subject());
             helper.setText(dto.text(), true);
             emailSender.send(message);
-            this.save(dto);
         } catch (Exception e) {
             throw new EmailException(String.format("Houve um erro ao enviar o email: %s", e.getMessage()));
         }
-    }
-
-    private void save(EmailRequestDto dto){
-        var userMapper = EmailMapper.dtoToEntity(dto);
-        emailRepository.save(userMapper);
     }
     
 }
