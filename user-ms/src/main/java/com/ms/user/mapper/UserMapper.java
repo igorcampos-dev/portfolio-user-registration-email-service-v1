@@ -1,19 +1,12 @@
 package com.ms.user.mapper;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ms.user.models.dto.request.UserRequestDto;
 import com.ms.user.models.dto.response.UserResponse;
 import com.ms.user.models.entity.UserEntity;
+import org.mapstruct.Mapper;
 
-public class UserMapper {
-
-    private static final ObjectMapper mapper = new ObjectMapper();
-
-    public static UserResponse entityToResponse(UserEntity userEntity){
-        return mapper.convertValue(userEntity, UserResponse.class);
-    }
-
-    public static UserEntity dtoToEntity(UserRequestDto userRequestDto){
-        return mapper.convertValue(userRequestDto, UserEntity.class);
-    }
+@Mapper(componentModel = "spring")
+public abstract class UserMapper {
+    public abstract UserResponse toResponse(UserEntity userEntity);
+    public abstract UserEntity toEntity(UserRequestDto userResponse);
 }

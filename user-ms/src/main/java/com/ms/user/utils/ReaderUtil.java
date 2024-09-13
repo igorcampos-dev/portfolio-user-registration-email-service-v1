@@ -1,14 +1,13 @@
 package com.ms.user.utils;
 
 import lombok.SneakyThrows;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Objects;
 
-public class Reader {
+public class ReaderUtil {
 
     @SneakyThrows({URISyntaxException.class, IOException.class})
     public static String getContentFile(String filename){
@@ -16,7 +15,7 @@ public class Reader {
                 Files.readAllBytes(
                         Paths.get(
                                 Objects.requireNonNull(
-                                        Reader.class.getClassLoader().getResource(filename)
+                                        ReaderUtil.class.getClassLoader().getResource(filename)
                                 ).toURI()
                         )
                 )

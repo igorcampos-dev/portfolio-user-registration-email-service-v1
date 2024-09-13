@@ -10,21 +10,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@SuppressWarnings("unused")
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final UserProducer userProducer;
+    private final UserMapper mapper;
 
     @Override
     public UserResponse save(UserRequestDto userRequestDto) {
-        var userResponse = this.saveDb(userRequestDto);
+        var userEntity = this.userRepository.saveOrElseThrow(mapper.toEntity(userRequestDto));
+        var userResponse = this.mapper.toResponse(userEntity);
         userProducer.publishMessageEmail(userResponse);
         return userResponse;
     }
 
-
-    private UserResponse saveDb(UserRequestDto userRequestDto){
-        var userEntity = userRepository.saveOrElseThrow(UserMapper.dtoToEntity(userRequestDto));
-        return UserMapper.entityToResponse(userEntity);
-    }
 }

@@ -1,6 +1,6 @@
 package com.ms.user.exceptions;
 
-import com.ms.user.utils.Time;
+import com.ms.user.utils.TimeUtil;
 import lombok.Builder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ public record Error(String timestamp, Integer status, String error, String path)
         return ResponseEntity
                 .status(status)
                 .body(Error.builder()
-                           .timestamp(Time.getTime())
+                           .timestamp(TimeUtil.getTime())
                            .error(message)
                            .status(status.value())
                            .path(uri)
