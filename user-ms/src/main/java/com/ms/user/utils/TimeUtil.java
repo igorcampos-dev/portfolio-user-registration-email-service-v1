@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-public class Time {
+public class TimeUtil {
 
     public static String getTime(){
         return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")

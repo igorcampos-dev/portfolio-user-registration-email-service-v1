@@ -35,7 +35,6 @@ public class EmailEntity implements Serializable {
 
     @Column(
             name = "MAL_ST_USER_ID",
-            updatable = false,
             nullable = false,
             length = 35
     )
@@ -44,7 +43,6 @@ public class EmailEntity implements Serializable {
 
     @Column(
             name = "MAL_ST_EMAIL_FROM",
-            updatable = false,
             nullable = false
     )
     @Comment("Email da empresa")
@@ -52,7 +50,6 @@ public class EmailEntity implements Serializable {
 
     @Column(
             name = "MAL_ST_EMAIL_TO",
-            updatable = false,
             nullable = false
     )
     @Comment("Email do usuário")
@@ -60,7 +57,6 @@ public class EmailEntity implements Serializable {
 
     @Column(
             name = "MAL_ST_SUBJECT",
-            updatable = false,
             nullable = false
     )
     @Comment("Resumo do email (intuito)")
@@ -68,7 +64,6 @@ public class EmailEntity implements Serializable {
 
     @Column(
             name = "MAL_ST_TEXT",
-            updatable = false,
             columnDefinition = "TEXT",
             nullable = false
     )
@@ -77,7 +72,6 @@ public class EmailEntity implements Serializable {
 
     @Column(
             name = "MAL_DT_SEND_DATE_EMAIL",
-            updatable = false,
             columnDefinition = "TIMESTAMP",
             nullable = false
     )
@@ -86,7 +80,6 @@ public class EmailEntity implements Serializable {
 
     @Column(
             name = "MAL_ST_STATUS_EMAIL",
-            updatable = false,
             length = 10,
             nullable = false
     )

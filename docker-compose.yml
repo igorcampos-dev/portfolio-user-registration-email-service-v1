@@ -53,10 +53,11 @@ services:
     image: postgres:13
     container_name: database
     environment:
+      POSTGRES_DB: pvd-solution
       POSTGRES_PASSWORD: 22I!swq9s
       POSTGRES_USER: sdiv_pred
     volumes:
-      - ./docker/sql/databases.sql:/docker-entrypoint-initdb.d/databases.sql
+      - ./postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:

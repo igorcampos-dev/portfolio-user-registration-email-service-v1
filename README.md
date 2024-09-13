@@ -28,10 +28,6 @@ Os projetos estarão disponíveis no Swagger nas seguintes rotas:
 - User-MS: [clique aqui](http://localhost:81/swagger-ui/index.html#/)
 - Email-MS: [clique aqui](http://localhost:82/swagger-ui/index.html#/)
 
-## Diagrama Demonstrando a Lógica do Projeto
-
-<img src="readme-archives/diagrama.png" alt="Diagrama" width="600" height="400">
-
 ## Passo a passo de como executar o projeto
 
 Acesse o link desse vídeo para poder gerar a credencial necessária para utilizar o projeto: [aqui](https://www.youtube.com/watch?v=lSURGX0JHbA)
@@ -62,3 +58,15 @@ docker compose up
 ```
 
 e aguarde o processo de inicialização dos containers.
+
+
+### Curl
+
+```bash
+curl --location 'http://localhost:8081/v1/auth/register' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "test@gmail.com",
+    "name": "test CHEFE"
+}'
+```

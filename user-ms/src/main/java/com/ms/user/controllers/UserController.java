@@ -12,13 +12,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping(path = UserController.PATH)
 @RequiredArgsConstructor
 @Tag(name = "Salvar usuários", description = "Controlador para efetuar Salvar usuários")
 public class UserController {
 
+    public static final String PATH = "/v1/auth";
     private final UserService userService;
 
     @ApiResponse(description = "Salvar o usuário", responseCode = "200")
@@ -27,7 +30,7 @@ public class UserController {
             ---
            
             """)
-    @PostMapping("/users")
+    @PostMapping("/register")
     public ResponseEntity<UserResponse> createUser(@RequestBody @Valid UserRequestDto userRequestDto){
         var response = userService.save(userRequestDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
