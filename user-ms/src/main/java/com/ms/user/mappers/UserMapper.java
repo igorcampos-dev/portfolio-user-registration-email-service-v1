@@ -1,4 +1,4 @@
-package com.ms.user.mapper;
+package com.ms.user.mappers;
 
 import com.ms.user.models.dto.request.UserRequestDto;
 import com.ms.user.models.dto.response.UserResponse;

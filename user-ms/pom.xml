@@ -27,6 +27,7 @@
 		<springdoc.version>2.5.0</springdoc.version>
 		<mapstruct.version>1.6.0</mapstruct.version>
 		<maven.compiler.plugin>3.11.0</maven.compiler.plugin>
+		<spring.wolf.version>1.4.0</spring.wolf.version>
 	</properties>
 
 	<dependencies>
@@ -100,6 +101,19 @@
 			<artifactId>mapstruct</artifactId>
 			<version>${mapstruct.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>io.github.springwolf</groupId>
+			<artifactId>springwolf-amqp</artifactId>
+			<version>${spring.wolf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.springwolf</groupId>
+			<artifactId>springwolf-ui</artifactId>
+			<version>${spring.wolf.version}</version>
+		</dependency>
+
 
 	</dependencies>
 
