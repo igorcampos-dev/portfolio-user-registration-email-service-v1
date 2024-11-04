@@ -29,8 +29,8 @@ RUN adduser \
     --home "/nonexistent" \
     --shell "/sbin/nologin" \
     --no-create-home \
-    --uid "${UID}" \
-    appuser \
+    --uid "10001" \
+    appuser
 
 USER appuser
 COPY --from=extract build/target/extracted/dependencies/ ./
